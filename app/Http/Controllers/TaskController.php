@@ -33,6 +33,7 @@ class TaskController extends Controller
         $data = $request->json();
         if ($data->get('title')) {
             $task->title =$data->get('title');
+            $task->save();
             return $task;
         }
         return response(['success' => false, 'error' => 'title of the new task is not provide.'] , 401);
