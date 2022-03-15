@@ -1,0 +1,20 @@
+version: "3.7"
+
+volumes:
+    composer:
+        external: true
+
+networks:
+    default:
+        external: true
+        name: jimble
+
+services:
+    php:
+        container_name: todo-php
+        build: docker/php
+        image: php-base
+        volumes:
+            - ./:/srv
+        ports:
+          - 8000:8000
